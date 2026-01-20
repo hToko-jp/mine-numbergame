@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Number Bubble Battle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game-container">
+        <!-- Header / HUD -->
+        <div id="hud">
+            <div id="score-container">SCORE: <span id="score">0</span></div>
+            <div id="timer-container">TIME: <span id="timer">60</span></div>
+            <div class="level-indicator">Level: <span id="level">1</span></div>
+        </div>
+
+        <!-- Enemy Section (Simplified to just Target) -->
+        <section id="enemy-area">
+            <div class="enemy-container">
+                <!-- <div class="enemy-visual" id="enemy-visual">👾</div> -->
+                <!-- <div class="enemy-hp-bar"><div class="enemy-hp-fill" id="enemy-hp-fill"></div></div> -->
+                <div class="target-bubble">
+                    <span class="target-label">TARGET</span>
+                    <span id="target-number">?</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bubble Play Area -->
+        <section id="play-area">
+            <canvas id="connection-canvas"></canvas>
+            <div id="bubbles-container">
+                <!-- Bubbles injected here via JS -->
+            </div>
+        </section>
+
+        <!-- Current Selection Info -->
+        <div id="selection-info" class="hidden">
+            Sum: <span id="current-sum">0</span>
+        </div>
+
+        <!-- Game Over / Start Overlay -->
+        <div id="overlay" class="">
+            <div class="overlay-content">
+                <h1 id="overlay-title">Number Bubble</h1>
+                <p id="overlay-msg">数字をつなげて足し算しよう！<br>合計がTARGETと同じになると攻撃できるよ！</p>
+                <button id="start-btn">スタート</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
