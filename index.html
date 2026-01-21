@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Number Bubble Battle</title>
+    <title>つなげてすすめ</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
@@ -48,13 +48,35 @@
         <!-- Game Over / Start Overlay -->
         <div id="overlay" class="">
             <div class="overlay-content">
-                <h1 id="overlay-title">Number Bubble</h1>
-                <p id="overlay-msg">数字をつなげて足し算しよう！<br>合計がTARGETと同じになると攻撃できるよ！</p>
+                <h1 id="overlay-title">つなげてすすめ</h1>
+                <p id="overlay-msg">つなげてたしざんをしよう！<br>TARGETとおなじかずになると、こうげきできるよ</p>
                 <button id="start-btn">スタート</button>
+                <button id="show-ranking-btn">ランキングを見る</button>
+
             </div>
         </div>
     </div>
+    <!-- Firebase SDK (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+
+    <!-- App Scripts -->
+    <script src="firebase_config.js"></script>
+    <script src="ranking.js"></script>
     <script src="script.js"></script>
+
+
+
+    <!-- Ranking Modal -->
+    <div id="ranking-modal" class="hidden">
+        <div class="ranking-content">
+            <h2>🏆 RANKING 🏆</h2>
+            <ul id="ranking-list">
+                <!-- Scores will be loaded here -->
+            </ul>
+            <button id="close-ranking-btn">とじる</button>
+        </div>
+    </div>
 </body>
 
 </html>

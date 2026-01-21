@@ -53,8 +53,16 @@ class Game {
         // Start
         this.startBtn.addEventListener('click', () => this.startGame());
 
+        // Ranking
+        const showRankingBtn = document.getElementById('show-ranking-btn');
+        if (showRankingBtn) {
+            showRankingBtn.addEventListener('click', () => {
+                if (typeof openRanking === 'function') openRanking();
+            });
+        }
+
         // Timer
-        this.timeLimit = 60;
+        this.timeLimit = 100;
         this.timerInterval = null;
         this.isRunning = false;
     }
@@ -71,7 +79,7 @@ class Game {
 
         console.log("Starting Game...");
         this.score = 0;
-        this.level = 0;
+        this.level = 1;
         this.timeLeft = this.timeLimit;
 
         // Ensure element exists
@@ -115,6 +123,16 @@ class Game {
         document.getElementById('overlay-msg').innerText = `SCORE: ${this.score}  (Level ${this.level})`;
         this.startBtn.innerText = "RETRY";
         this.isRunning = false; // Stop physics loop if desired, or keep it running for particles
+
+        // Ranking Save
+        if (this.score > 0) {
+            setTimeout(() => {
+                const name = prompt(`★ High Score: ${this.score} ★\nあなたのなまえをランキングにのこそう！`, "Guest");
+                if (name && typeof saveScore === 'function') {
+                    saveScore(name, this.score);
+                }
+            }, 500);
+        }
     }
 
     nextLevel() {
